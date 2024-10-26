@@ -22,6 +22,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $phone = htmlspecialchars($_POST['phone']);
     $gender = htmlspecialchars($_POST['gender']);
 
+    //abush
+    if (isset($_POST['courses']) && !empty($_POST['courses'])) {
+        $selectedCourses = $_POST['courses'];
+        
+        echo "<h2>You have selected the following courses:</h2>";
+        echo "<ul>";
+        foreach ($selectedCourses as $course) {
+            echo "<li>" . htmlspecialchars($course) . "</li>";
+        }
+        echo "</ul>";
+    } else {
+        echo "<h2>No course selected. Please select at least one course.</h2>";
+    }
+
     // SQL query to insert data into the 'users' table
     $sql = "INSERT INTO users (fname, mname, lname, username, phone, gender)
             VALUES ('$fname', '$mname', '$lname', '$username', '$phone', '$gender')";
