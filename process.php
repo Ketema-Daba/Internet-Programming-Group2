@@ -1,39 +1,49 @@
 <?php
-$servername = "localhost";  // MySQL server
-$username = "root";          // MySQL username (default is usually 'root')
-$password = "";              // MySQL password (leave blank if none is set)
-$dbname = "internetprogramming"; // Your database name
+// Database connection parameters
+$servername = "localhost"; // Change if your database server is different
+$username = "root"; // Database username
+$password = ""; // Database password
+$dbname = "user_registration"; // Database name
 
-// Create connection
+// Create a connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 
-// Check connection
+// Check the connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
-<h1>form </h1>
-// Check if form data has been submitted
+
+// Process the form data
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Sanitize form input to prevent SQL injection
+    // Sanitize input data
     $fname = htmlspecialchars($_POST['fname']);
     $mname = htmlspecialchars($_POST['mname']);
     $lname = htmlspecialchars($_POST['lname']);
     $username = htmlspecialchars($_POST['username']);
     $phone = htmlspecialchars($_POST['phone']);
+    $email = htmlspecialchars($_POST['email']);
     $gender = htmlspecialchars($_POST['gender']);
+    $country = htmlspecialchars($_POST['country']);
+    
+    // Handle selected courses
+    $courses = isset($_POST['courses']) ? implode(", ", $_POST['courses']) : '';
 
-    // SQL query to insert data into the 'users' table
-    $sql = "INSERT INTO users (fname, mname, lname, username, phone, gender)
-            VALUES ('$fname', '$mname', '$lname', '$username', '$phone', '$gender')";
-
-    // Execute the query
-    if ($conn->query($sql) === TRUE) {
+    // Prepare and bind
+    $stmt = $conn->prepare("INSERT INTO users (first_name, middle_name, last_name, username, phone, email, gender, country, courses) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param("sssssssss", $fname, $mname, $lname, $username, $phone, $email, $gender, $country, $courses);
+    
+    // Execute the statement
+    if ($stmt->execute()) {
         echo "New record created successfully!";
     } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
+        echo "Error: " . $stmt->error;
     }
+
+    // Close the statement and connection
+    $stmt->close();
+} else {
+    echo "Form not submitted correctly.";
 }
 
-// Close the database connection
 $conn->close();
 ?>
