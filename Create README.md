@@ -69,14 +69,23 @@ plaintext
 Copy code
 wordpress/
 ├── wp-admin/       # Admin dashboard files
+
 ├── wp-content/     # Themes, plugins, and uploads
+
 │   ├── plugins/    # Plugins installed on the site
+
 │   ├── themes/     # Active and inactive themes
+
 │   └── uploads/    # Media uploads (images, files)
+
 ├── wp-includes/    # Core WordPress files
+
 ├── index.php       # Entry point for the website
+
 ├── wp-config.php   # Configuration settings (database, keys, etc.)
+
 └── .htaccess       # Server-level rules for URLs and security
+
 
 # Getting Started
 
