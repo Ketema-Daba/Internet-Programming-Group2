@@ -66,25 +66,28 @@ Follow the setup wizard to configure your site.
 # Folder Structure
 
 plaintext
+
 Copy code
+
 wordpress/
-├── wp-admin/       # Admin dashboard files
 
-├── wp-content/     # Themes, plugins, and uploads
+├── wp-admin/             # Admin dashboard files
 
-│   ├── plugins/    # Plugins installed on the site
+├── wp-content/           # Themes, plugins, and uploads
 
-│   ├── themes/     # Active and inactive themes
+│   ├── plugins/          # Plugins installed on the site
 
-│   └── uploads/    # Media uploads (images, files)
+│   ├── themes/            # Active and inactive themes
 
-├── wp-includes/    # Core WordPress files
+│   └── uploads/           # Media uploads (images, files)
 
-├── index.php       # Entry point for the website
+├── wp-includes/           # Core WordPress files
 
-├── wp-config.php   # Configuration settings (database, keys, etc.)
+├── index.php              # Entry point for the website
 
-└── .htaccess       # Server-level rules for URLs and security
+├── wp-config.php           # Configuration settings (database, keys, etc.)
+
+└── .htaccess              # Server-level rules for URLs and security
 
 
 # Getting Started
