@@ -1,92 +1,139 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+/* General reset */
+* {
     margin: 0;
-    padding: 20px;
+    padding: 0;
+    box-sizing: border-box;
 }
 
+body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #74ebd5, #9face6);
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Container styles */
 .container {
     max-width: 800px;
-    margin: auto;
-    padding: 20px;
-    background: white;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 40px auto;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    padding: 20px 30px;
+    transition: transform 0.3s;
 }
 
+.container:hover {
+    transform: translateY(-5px);
+}
+
+/* Header styles */
 h1 {
     text-align: center;
-    color: #333;
+    color: #4CAF50;
+    font-size: 26px;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
+/* Label styles */
 label {
     display: block;
-    margin: 10px 0 5px;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #555;
 }
 
+/* Input styles */
 input[type="text"],
 input[type="email"],
 input[type="password"],
 input[type="file"],
 select {
     width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
     border-radius: 5px;
+    background-color: #f9f9f9;
+    font-size: 16px;
+    transition: border-color 0.3s, background-color 0.3s;
 }
 
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+select:focus {
+    border-color: #4CAF50;
+    background-color: #e6fff5;
+    outline: none;
+}
+
+/* Gender options */
 input[type="radio"] {
     margin-right: 5px;
 }
 
+select {
+    cursor: pointer;
+}
+
+/* Button styles */
 button {
     display: inline-block;
-    padding: 10px 15px;
-    margin-top: 10px;
-    background-color: #28a745;
-    color: white;
+    padding: 12px 20px;
+    font-size: 16px;
     border: none;
     border-radius: 5px;
+    background-color: #4CAF50;
+    color: white;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.3s;
 }
 
 button:hover {
-    background-color: #218838;
+    background-color: #45a049;
+    transform: translateY(-2px);
 }
 
+/* File operations */
 .file-operations {
-    
     margin-top: 20px;
-    background-color: #e9ecef;
-    padding: 15px;
-    border-radius: 5px;
-    padding-left: 15px;
-}
-
-.file-operations button{
     display: flex;
-    padding-left: 15px;
+    flex-direction: column;
+    gap: 12px;
 }
-pre {
-    background-color: #f7f7f7;
-    padding: 10px;
-    border: 1px solid #ccc;
+
+.file-operations button {
+    width: fit-content;
+    margin: auto;
+}
+
+/* File input */
+input[type="file"] {
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ddd;
     border-radius: 5px;
-    overflow: auto;
-    white-space: pre-wrap; /* Allows for wrapping of text */
+    background-color: #f9f9f9;
 }
 
-.secform {
-    text-align: center;
-    margin-top: 20px;
+/* Form buttons */
+button[type="submit"] {
+    width: 100%;
 }
 
-.button2 {
-    background-color: #007bff;
-}
+/* Responsive design */
+@media (max-width: 600px) {
+    .container {
+        padding: 15px;
+    }
 
-.button2:hover {
-    background-color: #0056b3;
+    button {
+        width: 100%;
+    }
 }

@@ -149,7 +149,7 @@
         <button onclick="renameFile()">Rename File</button><br>
         <button onclick="deleteFile()">Delete File</button><br>
     </div>
-            <button type="submit">Register</button>
+            <button type="submit" >Register</button>
             
         </form>
 
