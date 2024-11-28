@@ -5,7 +5,11 @@ $db = 'learning_platform';
 $user = 'root';
 $pass = '';
 
+<<<<<<< HEAD
 $conn = new mysqli($host, $user, $pass, $db, 3307);
+=======
+$conn = new mysqli($host, $user, $pass, $db);
+>>>>>>> 31106f68e5e6a9e516f390430a13d8800b727570
 
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);

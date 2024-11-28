@@ -9,4 +9,8 @@ if (isset($_POST['oldname']) && isset($_POST['newname'])) {
         echo "Error renaming file.";
     }
 }
+<<<<<<< HEAD
 ?>
+=======
+?>
+>>>>>>> 31106f68e5e6a9e516f390430a13d8800b727570

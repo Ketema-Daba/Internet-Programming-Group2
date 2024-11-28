@@ -1,4 +1,5 @@
 <?php
+<<<<<<< HEAD
 // $host = 'localhost';
 
 
@@ -10,6 +11,14 @@ $pass = '';
 $conn = new mysqli($host, $user, $pass, $db, $port);
 
 // $conn = new mysqli($host, $user, $pass, $db);
+=======
+$host = 'localhost';
+$db = 'learning_platform';
+$user = 'root';
+$pass = '';
+
+$conn = new mysqli($host, $user, $pass, $db);
+>>>>>>> 31106f68e5e6a9e516f390430a13d8800b727570
 
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
@@ -44,4 +53,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 }
 
 $conn->close();
+<<<<<<< HEAD
 ?>
+=======
+?>
+>>>>>>> 31106f68e5e6a9e516f390430a13d8800b727570
