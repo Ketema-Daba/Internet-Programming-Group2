@@ -20,7 +20,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $last_name = $conn->real_escape_string($_POST['last_name']);
     $phone_number = $conn->real_escape_string($_POST['phone_number']);
     $gender = $conn->real_escape_string($_POST['gender']);
-    $subjects = implode(", ", $_POST['subjects']); // Multiple subjects
+    
+    // Validate and process subjects
+    if (isset($_POST['subjects']) && is_array($_POST['subjects'])) {
+        $subjects = implode(", ", $_POST['subjects']);
+    } else {
+        $subjects = ""; // Set to an empty string if no subjects are selected
+    }
+    
     $email = $conn->real_escape_string($_POST['email']);
     $password = password_hash($_POST['password'], PASSWORD_DEFAULT); // Hash the password
     
@@ -51,7 +58,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         header("Location: learning_website.php");
     } else {
         echo "Error: " . $stmt->error;
-
     }
     
     $stmt->close();
